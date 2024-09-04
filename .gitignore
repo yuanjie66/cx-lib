@@ -1,0 +1,8 @@
+/node_modules
+/dist
+/.vscode
+
+yalc.lock
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
