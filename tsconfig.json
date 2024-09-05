@@ -14,9 +14,10 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@src/*": ["src/*"],
+      "@components/*": ["src/components/*"],
     }
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*",  "example/**/*"],
   "exclude": ["node_modules", "dist"]
 }
