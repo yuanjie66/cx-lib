@@ -1,9 +1,6 @@
-import React$1 from 'react';
+import React from 'react';
+import { ButtonProps } from 'antd';
 
-interface CXProps {
-    children: React.ReactNode | string;
-}
-
-declare const CxButton: React$1.FC<CXProps>;
+declare const CxButton: React.FC<ButtonProps>;
 
 export { CxButton };

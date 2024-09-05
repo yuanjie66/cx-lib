@@ -1,11 +1,11 @@
 import React from 'react';
-import {CxButton} from 'cx-lib';
 // import {CxButton} from '@components/cx-button';
+import {CxButton} from 'cx-lib';
 
 const App: React.FC = (props) => {
 	return (
 		<div>
-			<CxButton>qwdqwd</CxButton>
+			<CxButton type='primary'>打开d</CxButton>
 		</div>
 	);
 };

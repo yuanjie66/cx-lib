@@ -24,22 +24,24 @@ export default [
 				sourcemap: true,
 			},
 		],
+		external: ['react', 'react-dom', 'antd'],
 		plugins: [
-			// peerDepsExternal(),
-			resolve(),
-			commonjs(),
+			peerDepsExternal(), // 确保 peerDependencies 不会打包进库中
+			resolve(), // 允许 Rollup 解析 node_modules 中的模块
+			commonjs(), // 支持 CommonJS 格式的模块
 			typescript({
 				tsconfig: './tsconfig.prod.json',
 				declaration: true,
 				declarationDir: 'types',
 				outDir: 'dist',
+				// useTsconfigDeclarationDir: true, // 生成类型声明文件
 			}),
-			// babel({
-			// 	exclude: 'node_modules/**',
-			// 	babelHelpers: 'bundled',
-			// 	presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
-			// }),
-			postcss(),
+			postcss({
+				use: [
+					['less', { javascriptEnabled: true}]
+				],
+				extensions: ['.css', '.less'] // 处理 Less 文件
+			}),
 		]
 	},
 	{
