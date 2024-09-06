@@ -16,31 +16,39 @@ export default [
 			{
 				file: pkg.main,
 				format: 'cjs',
-				sourcemap: true,
+				sourcemap: false,
 			},
 			{
 				file: pkg.module,
 				format: 'esm',
-				sourcemap: true,
+				sourcemap: false,
 			},
 		],
-		external: ['react', 'react-dom', 'antd'],
+		external: ['react', 'react-dom'],
 		plugins: [
 			peerDepsExternal(), // 确保 peerDependencies 不会打包进库中
 			resolve(), // 允许 Rollup 解析 node_modules 中的模块
 			commonjs(), // 支持 CommonJS 格式的模块
+			babel({
+				extensions: ['.js', '.jsx', '.ts', '.tsx'],
+				babelHelpers: 'runtime', // 改为 'runtime'
+				plugins: [
+					['import', { libraryName: 'antd', libraryDirectory: 'es', style: true }, 'antd'],
+					'@babel/plugin-transform-runtime', // 添加 runtime 插件
+				  ],
+			}),
 			typescript({
 				tsconfig: './tsconfig.prod.json',
 				declaration: true,
 				declarationDir: 'types',
 				outDir: 'dist',
-				// useTsconfigDeclarationDir: true, // 生成类型声明文件
 			}),
 			postcss({
 				use: [
 					['less', { javascriptEnabled: true}]
 				],
-				extensions: ['.css', '.less'] // 处理 Less 文件
+				extensions: ['.css', '.less'], // 处理 Less 文件
+				extract: 'dist/styles.css', // 将样式提取到单独文件
 			}),
 		]
 	},

@@ -17,7 +17,6 @@
   "license": "ISC",
   "dependencies": {
     "antd": "^5.20.5",
-    "cx-lib": "file:.yalc/cx-lib",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
@@ -26,5 +25,5 @@
     "README.md",
     "LICENSE"
   ],
-  "yalcSig": "95c14e78a2495e0b80effcfe665e6436"
+  "yalcSig": "62f3df5b705c3616df1f7eea7434865d"
 }

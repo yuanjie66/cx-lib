@@ -5,7 +5,7 @@ import {CxButton} from 'cx-lib';
 const App: React.FC = (props) => {
 	return (
 		<div>
-			<CxButton type='primary'>打开d</CxButton>
+			<CxButton type='primary'>打开</CxButton>
 		</div>
 	);
 };

@@ -1,3 +1,4 @@
 import React from 'react';
 import { ButtonProps } from 'antd';
-export declare const CxButton: React.FC<ButtonProps>;
+declare const CxButton: React.FC<ButtonProps>;
+export default CxButton;

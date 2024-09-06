@@ -1,1 +1,2 @@
-export * from "./CxButton";
+export { default as CxButton } from "./CxButton";
+ 
